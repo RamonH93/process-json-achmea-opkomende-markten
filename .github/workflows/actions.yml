@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 1 * * *' # At 01:00 every day
+    - cron: '0 22 * * 1-5' # At 22:00 on weekdays
 
 permissions:
   contents: write
