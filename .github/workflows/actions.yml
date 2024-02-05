@@ -19,7 +19,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # install the python version needed
+          python-version: '3.x' # use latest python version
           cache: pip
           
       - name: install python packages
