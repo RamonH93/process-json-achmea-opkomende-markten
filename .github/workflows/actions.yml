@@ -3,6 +3,7 @@ name: run main.py
 on:
   schedule:
     - cron: '0 22 * * 1-5' # At 22:00 on weekdays
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 permissions:
   contents: write
