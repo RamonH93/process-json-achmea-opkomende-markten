@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 22 * * 1-5' # At 22:00 on weekdays
+    - cron: '0 10 * * 1-5' # At 10:00 UTC on weekdays since source updates once per weekday between 2-10
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 permissions:
