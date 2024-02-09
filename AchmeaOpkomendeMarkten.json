@@ -1,6 +1,6 @@
 {
     "fund": "Achmea opkomende markten aandelen fonds A",
-    "lastUpdated": "2024-02-08 10:18",
+    "lastUpdated": "2024-02-09 10:18",
     "rates": [
         {
             "Date": "2023-05-31",
@@ -717,6 +717,10 @@
         {
             "Date": "2024-02-08",
             "CloseQuote": "26.03"
+        },
+        {
+            "Date": "2024-02-09",
+            "CloseQuote": "25.9"
         }
     ]
 }
