@@ -8,16 +8,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-quotes
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
 
       - name: checkout repo content
-        uses: actions/checkout@v5 # checkout the repository content to github runner
+        uses: actions/checkout@v7
 
       - name: setup python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x' # use latest python version
           cache: pip
@@ -27,17 +31,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: execute py script # run main.py
-        #env:
-        #  SOME_SECRET: ${{ secrets.SOME_SECRET }}
+      - name: execute py script 
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python main.py
           
       - name: commit files
         run: |
           git config --local user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
           git config --local user.name "${GITHUB_ACTOR}"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -m "updated quotes")
+          git add AchmeaOpkomendeMarkten.json
+          git diff --cached --quiet || git commit -m "updated quotes $(date -u +%F)"
           
       - name: push changes
         run: git push origin HEAD:master
